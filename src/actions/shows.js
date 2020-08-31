@@ -1,8 +1,16 @@
-import {GET_SHOW, SET_SHOW} from '../constants/shows'
+import {GET_SHOW, SET_SHOW, GET_SHOWS,SET_SHOWS } from '../constants/shows'
 
 export const getShow = (id) => ({
     type: GET_SHOW,
     payload: id,
+})
+export const getShows = (page) => ({
+    type: GET_SHOWS,
+    payload: page,
+})
+export const setShows = (shows) => ({
+    type: SET_SHOWS,
+    payload: shows,
 })
 
 export const setShow = (show) => ({

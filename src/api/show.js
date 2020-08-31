@@ -10,3 +10,14 @@ export const getShow = async (id) => {
   }
 };
 
+export const getShows = async (page) => {
+  try {
+    const response = await axios.get(`https://api.tvmaze.com/shows`, {
+      params: { page },
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};

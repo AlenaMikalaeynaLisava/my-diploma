@@ -1,4 +1,5 @@
 import {SET_SHOW} from '../constants/shows'
+import {SET_SHOWS} from '../constants/shows'
 
 
 const initialState = {
@@ -11,8 +12,10 @@ const initialState = {
       case SET_SHOW:
         return { ...state, currentShow: payload };
   
-      default:
-        return state;
+        case SET_SHOWS:
+      return { ...state, shows: payload };
+    default:
+      return state;
     }
   };
   

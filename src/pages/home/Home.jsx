@@ -1,16 +1,19 @@
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { getShows } from "../../actions/shows";
 
+function Home(props) {
+  useEffect(() => {
+    props.getShows(1);
+  }, []);
 
-
-//const { ReactComponent } = require("*.svg");
-
-import React from 'react'
-
-function Home() {
-    return (
-        <div>
-            Home
-        </div>
-    )
+  return <div>Home</div>;
 }
 
-export default Home
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+  getShows: (page) => dispatch(getShows(page)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
