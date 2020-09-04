@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import PropTypes from "prop-types";
 import { Grid, AppBar } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 function Header(props) {
-    const { routes } = props;
-    return (
-        <Grid container justify="space-between">
+  const { routes } = props;
+  return (
+    <Grid container justify="space-between">
       <Grid item xs={2}>
         Logo
       </Grid>
@@ -23,14 +23,16 @@ function Header(props) {
         </AppBar>
       </Grid>
     </Grid>
-    )
+  );
 }
 Header.propTypes = {
- routes : PropTypes.arrayOf(PropTypes.shape({
-    path: PropTypes.string.isRequired,
-    //name: PropTypes.string.isRequired,
-    name: PropTypes.func,
-    //component: PropTypes.func,
- }))
+  routes: PropTypes.arrayOf(
+    PropTypes.shape({
+      path: PropTypes.string.isRequired,
+      //name: PropTypes.string.isRequired,
+      name: PropTypes.func,
+      //component: PropTypes.func,
+    })
+  ),
 };
 export default Header;

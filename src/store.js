@@ -14,5 +14,3 @@ sagaMiddleware.run(rootWatcher);
 
 export default store;
 
-
-

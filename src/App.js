@@ -1,65 +1,52 @@
 import React from "react";
-import { Route, Switch} from "react-router-dom";
-import "./App.css";
-// import Calculator from "./components/Calculator";
-// import Output from "./components/Output";
-// import Show from "./components/Show";
-import {About, Contacts, JoinUs, MovieReviews, Home} from "./pages";
-import Header from "./components/Header";
-import {Paper} from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
+import { Route, Switch } from "react-router-dom";
+import { Paper } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+
 import background from "./images/background.jpg";
 
+import { Home, About, JoinUs, Contacts, MovieReviews, Show } from "./Pages";
+import Header from "./components/Header";
 
 const useStyles = makeStyles({
   root: {
     backgroundImage: `url(${background})`,
     height: "100vh",
-    color: "CornflowerBlue",
   },
 });
 
-//export default useStyles3;
+const routes = [
+  { path: "/", name: "Home", component: Home },
+  { path: "/about", name: About.name, component: About },
+  { path: "/movie-reviews", name: MovieReviews.name, component: MovieReviews },
+  { path: "/join-us", name: JoinUs.name, component: JoinUs },
+  { path: "/contacts", name: Contacts.name, component: Contacts },
 
-
-
+];
 
 function App() {
   const classes = useStyles();
-  const routes = [{path:"/home", name: "Home"}, 
-                {path:"/about", name: "About"},
-                {path:"/contacts", name: "Contacts"},
-                {path:"/joinus", name: "JoinUs"},
-                {path:"/moviereviews", name: "MovieReviews"}];
-  return (
-    <main className="App"  >
-      <Paper className={classes.root}> 
-      {/* <Calculator />
-      <Output />
-      <Show /> */}
-      <Header routes={routes}/>
-      <Switch>
-             <Route exact path="/" component = {()=> <div>main</div>}>
-             </Route>
-             {routes.map((elem)=>(
-               <Route exact path="$`{elem.path}`" component = {elem.name} />
-             ))}
-             {/* <Route exact path="/" component = {()=> <Home />}>
-             </Route> */}
-                <Route exact path="/home" component = {Home} />
-                <Route exact path="/about" component = {About} />
-                <Route exact path="/contacts" component = {Contacts} />
-                <Route exact path="/joinus" component = {JoinUs} />
-                <Route exact path="/moviereviews" component = {MovieReviews} />
 
-             <Route >
-               404 not found
-            </Route>
-         </Switch>
-         </Paper>
-    </main>
+  return (
+    <div className={classes.root}>
+      <Header routes={routes}></Header>
+      <Paper>
+        <Switch>
+          {routes.map((elem) => (
+            <Route
+              path={elem.path}
+              exact
+              component={elem.component}
+              key={elem.name}
+            />
+          ))}
+          <Route path={"/show/:id"} exact component={Show}></Route>
+
+          <Route> 404 not found </Route>
+        </Switch>
+      </Paper>
+    </div>
   );
 }
 
 export default App;
-

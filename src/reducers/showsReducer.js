@@ -13,9 +13,9 @@ const initialState = {
         return { ...state, currentShow: payload };
   
         case SET_SHOWS:
-      return { ...state, shows: payload };
-    default:
-      return state;
-    }
+          return { ...state, shows: payload };
+        default:
+          return state;
+      }
   };
   

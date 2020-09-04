@@ -7,11 +7,12 @@ export const getShow = (id) => ({
 export const getShows = (page) => ({
     type: GET_SHOWS,
     payload: page,
-})
-export const setShows = (shows) => ({
+  });
+  
+  export const setShows = (shows) => ({
     type: SET_SHOWS,
     payload: shows,
-})
+  });
 
 export const setShow = (show) => ({
     type: SET_SHOW,

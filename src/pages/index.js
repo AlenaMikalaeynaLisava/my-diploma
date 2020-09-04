@@ -1,8 +1,8 @@
 import About from "./About/About";
 import Contacts from "./Contacts/Contacts";
+import Home from "./Home/Home";
 import JoinUs from "./JoinUs/JoinUs";
 import MovieReviews from "./MovieReviews/MovieReviews";
-import Home from "./Home/Home";
+import Show from "./Show/Show.jsx"
 
-
-export {About, Contacts, JoinUs, MovieReviews, Home};
+export { About, Contacts, Home, JoinUs, MovieReviews, Show };
